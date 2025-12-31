@@ -20,7 +20,7 @@ class App extends Component {
 
         return {
           percent: prev.percent + 10,
-          width: prev.width + 12.5
+          width: prev.width + 15
         };
       });
     }, 1000);
