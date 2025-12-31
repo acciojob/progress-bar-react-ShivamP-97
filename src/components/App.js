@@ -20,7 +20,7 @@ class App extends Component {
 
         return {
           percent: prev.percent + 10,
-          width: prev.width + 15
+          width: prev.width + 12.5
         };
       });
     }, 1000);
@@ -40,7 +40,7 @@ class App extends Component {
         <div
           id="barOuter"
           style={{
-            width: "150px",  
+            width: "125px",  
             height: "20px",
             border: "1px solid black"
           }}
