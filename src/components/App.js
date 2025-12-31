@@ -5,25 +5,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      progress: 0,
-      text: "Progress started"
+      percent: 0,
+      width: 0
     };
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      this.setState((prevState) => {
-        if (prevState.progress >= 100) {
+      this.setState((prev) => {
+        if (prev.percent >= 100) {
           clearInterval(this.interval);
-          return {
-            progress: 100,
-            text: "Operation completed"
-          };
+          return prev;
         }
 
         return {
-          progress: prevState.progress + 10,
-          text: `Progress: ${prevState.progress + 10}%`
+          percent: prev.percent + 10,
+          width: prev.width + 12.5
         };
       });
     }, 1000);
@@ -37,13 +34,13 @@ class App extends Component {
     return (
       <div>
         {/* Progress text */}
-        <p>{this.state.text}</p>
+        <p>{this.state.percent}%</p>
 
         {/* Progress bar */}
         <div
           id="barOuter"
           style={{
-            width: "100px",
+            width: "125px",
             height: "20px",
             border: "1px solid black"
           }}
@@ -51,7 +48,7 @@ class App extends Component {
           <div
             id="barInner"
             style={{
-              width: `${this.state.progress}px`,
+              width: `${this.state.width}px`,
               height: "100%",
               backgroundColor: "green"
             }}
