@@ -40,7 +40,7 @@ class App extends Component {
         <div
           id="barOuter"
           style={{
-            width: "150px",
+            width: "150px",  
             height: "20px",
             border: "1px solid black"
           }}
