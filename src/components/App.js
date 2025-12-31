@@ -9,22 +9,23 @@ class App extends Component {
       width: 0
     };
 
-    this.widths = [0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100, 112.5, 125, 137.5, 150];
+    this.widths = [
+      0, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100, 112.5, 125, 137.5, 150
+    ];
   }
 
   componentDidMount() {
     this.interval = setInterval(() => {
       this.setState((prev) => {
-        if (prev.step >= 10) { 
+        if (prev.step >= 12) { 
           clearInterval(this.interval);
           return prev;
         }
-
         const nextStep = prev.step + 1;
         return {
           step: nextStep,
           percent: nextStep * 10,
-          width: this.widths[nextStep] 
+          width: this.widths[nextStep]
         };
       });
     }, 1000);
@@ -38,7 +39,6 @@ class App extends Component {
     return (
       <div>
         <p>{this.state.percent}%</p>
-
         <div
           id="barOuter"
           style={{
